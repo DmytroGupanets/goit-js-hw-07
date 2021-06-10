@@ -1,4 +1,5 @@
 const inputRef = document.querySelector('#validation-input');
+const reqDataLength = +inputRef.getAttribute('data-length');
 let valueOfInput = '';
 
 inputRef.addEventListener('input', onInputEvent);
@@ -9,13 +10,21 @@ function onInputEvent(event) {
 }
 
 function onInputBlur() {
-  if (valueOfInput.length >= inputRef.getAttribute('data-length')) {
-    inputRef.classList.remove('invalid');
-    inputRef.classList.add('valid');
-  } else {
-    inputRef.classList.remove('valid');
-    inputRef.classList.add('invalid');
+  if (valueOfInput.length !== reqDataLength) {
+    return onInvalidInputValue('invalid', 'valid');
+  }
+
+  if (valueOfInput.length === reqDataLength) {
+    return onValidInputValue('valid', 'invalid');
   }
 }
 
-console.log(valueOfInput);
+function onValidInputValue(classToAdd, classToRemove) {
+  inputRef.classList.remove(classToRemove);
+  inputRef.classList.add(classToAdd);
+}
+
+function onInvalidInputValue(classToAdd, classToRemove) {
+  inputRef.classList.remove(classToRemove);
+  inputRef.classList.add(classToAdd);
+}
