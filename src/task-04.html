@@ -12,6 +12,36 @@
         background-color: #fff;
         color: #424242;
         line-height: 1.5;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      #counter {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 151px;
+      }
+
+      #value {
+        display: flex;
+        justify-content: center;
+
+        width: 30px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: rgb(209, 209, 209);
+        padding: 10px 20px;
+        margin-bottom: 10px;
+
+        border: 2px solid #a3a3a3;
+        border-radius: 5px;
+
+        font-weight: 700;
+        font-size: 16px;
       }
     </style>
   </head>
@@ -22,6 +52,7 @@
       <button type="button" data-action="decrement">-1</button>
       <span id="value">0</span>
       <button type="button" data-action="increment">+1</button>
+      <button type="button" data-action="reset">Reset counter</button>
     </div>
 
     <script src="js/task-04.js" type="module"></script>
